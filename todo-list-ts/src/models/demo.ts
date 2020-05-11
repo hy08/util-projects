@@ -1,4 +1,4 @@
-// import { Subscription, Reducer, Effect } from 'umi';
+import { Subscription, Reducer, Effect } from 'umi';
 import request from '@/utils/request';
 
 const gatwayName = '/api';

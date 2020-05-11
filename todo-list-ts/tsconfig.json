@@ -13,18 +13,24 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ],
-      "@@/": [
-        "src/.umi/"
-      ],
-      "@tmp/*": [
-        "src/pages/.umi/*"
+      "@@/*": [
+        "./src/.umi/*"
       ]
     },
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true, /* 启用实验性的ES装饰器 */
     "emitDecoratorMetadata": true, /* 给源码里的装饰器声明加上设计类型元数据 */
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "src/.umi/*",
+    "webpack",
+    "jest"
+  ]
 }
