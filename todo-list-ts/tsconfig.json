@@ -1,18 +1,30 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
     "jsx": "react",
     "esModuleInterop": true,
-    "sourceMap": true,
-    "baseUrl": ".",
     "strict": true,
+    "noImplicitReturns": true, /* ：当函数的有的返回路径没有返回值时报错 */
+    "noImplicitThis": true, /* 当 this 为 any 类型的时候报错 */
+    "alwaysStrict": true, /* 始终以严格模式解析并为每个源文件生成 "use strict"语句 */
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@tmp/*": ["src/pages/.umi/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@@/": [
+        "src/.umi/"
+      ],
+      "@tmp/*": [
+        "src/pages/.umi/*"
+      ]
     },
-    "allowSyntheticDefaultImports": true
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true, /* 启用实验性的ES装饰器 */
+    "emitDecoratorMetadata": true, /* 给源码里的装饰器声明加上设计类型元数据 */
   }
 }
