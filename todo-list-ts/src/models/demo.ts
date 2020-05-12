@@ -1,7 +1,5 @@
 import { Subscription, Reducer, Effect } from 'umi';
-import request from '@/utils/request';
-
-const gatwayName: string = '/api';
+import { getMockDemo } from '@/services/demo';
 
 export interface MockData {
   helloworld: string
@@ -36,15 +34,11 @@ const DemoModel: DemoModelType = {
   },
   effects: {
     *mockData({ }, { put, call }) {
-      const data1 = yield call(() => {
-        return request(`${gatwayName}/demo`, {
-          method: 'GET',
-        })
-      });
+      const data = yield call(getMockDemo);
       // if (!!data.error) {
       //   return;
       // }
-      yield put({ type: '_saveData', payload: data1 });
+      yield put({ type: '_saveData', payload: data });
     },
   },
   reducers: {
