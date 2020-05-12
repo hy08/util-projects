@@ -1,34 +1,57 @@
 import { Subscription, Reducer, Effect } from 'umi';
 import request from '@/utils/request';
 
-const gatwayName = '/api';
+const gatwayName: string = '/api';
 
-export default {
+export interface MockData {
+  helloworld: string
+}
+export interface DemoModelState {
+  data: MockData
+}
+interface DemoModelType {
   namespace: 'demo',
-  state: {
-    data: [],
-  },
-  subscriptions: {
-    // setup({ dispatch, history }) {
-    // },
-  },
+  state: DemoModelState,
   effects: {
-    // *deviceList({ payload }, { put, call, select }) {
-    //   // let data = yield call(service.getCmd, `${gatwayName}/devices/pages`, payload.data);
-    //   // if (!!data.error) {
-    //   //   return;
-    //   // }
-    //   // yield put({ type: '_saveDevices', payload: { list: data.list, totalSize: data.totalSize } });
-    //   // payload.success && payload.success(data.list)
-    // },
+    mockData: Effect,
   },
   reducers: {
-    // _saveDevices(state, { payload }) {
-    //   let data = [];
-    //   data = payload.list.map((l) => {
-    //     return Object.assign(l, { accessStatus: String(l.accessStatus) });
-    //   });
-    //   return { ...state, devices: data, totalSize: payload.totalSize };
-    // }
+    _saveData: Reducer<DemoModelState>
+  },
+  subscriptions: {
+    setup: Subscription
+  }
+}
+
+const DemoModel: DemoModelType = {
+  namespace: 'demo',
+  state: {
+    data: {
+      helloworld: ''
+    },
+  },
+  subscriptions: {
+    setup({ dispatch, history }): void {
+    },
+  },
+  effects: {
+    *mockData({ }, { put, call }) {
+      const data1 = yield call(() => {
+        return request(`${gatwayName}/demo`, {
+          method: 'GET',
+        })
+      });
+      // if (!!data.error) {
+      //   return;
+      // }
+      yield put({ type: '_saveData', payload: data1 });
+    },
+  },
+  reducers: {
+    _saveData(state, { payload }): DemoModelState {
+      return { ...state, data: payload };
+    }
   },
 };
+
+export default DemoModel;

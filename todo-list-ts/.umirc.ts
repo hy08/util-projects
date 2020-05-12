@@ -11,9 +11,9 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      component: '../layouts/index',
+      component: '../layouts/index', //component路径相对于src/pages
       routes: [
-        { path: '/', component: '../pages/index' }
+        { path: '/', component: '../pages/index' },
       ]
     }
   ],

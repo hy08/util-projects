@@ -1,18 +1,12 @@
 import React from 'react';
+import Demo from '../components/demo';
 import styles from './index.css';
 
-export default function() {
+const Home: React.FC<{}> = () => {
   return (
     <div className={styles.normal}>
-      <div className={styles.welcome} />
-      <ul className={styles.list}>
-        <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
-        <li>
-          <a href="https://umijs.org/guide/getting-started.html">
-            Getting Started
-          </a>
-        </li>
-      </ul>
+      <Demo title="Demo" intro={{ content: '这是介绍文本' }} />
     </div>
   );
 }
+export default Home;
