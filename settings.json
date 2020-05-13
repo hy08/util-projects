@@ -1,0 +1,52 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  /*
+   * @description 编译器配置
+   * @param tabSize 默认tab为两个空格
+   * @param formatOnSave 保存时自动修复
+   */
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  /*
+   * @description eslint 配置
+   * @param alwaysShowStatus 配置
+   * @param autoFixOnSave 保存时自动修复
+   * @param validate 在vue中添加错误提示
+   */
+  "eslint.alwaysShowStatus": true,
+  // 自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "eslint.enable": true, //是否开启vscode的eslint
+  // 配置 ESLint 检查的文件类型
+  "eslint.validate": ["javascript", "vue", "react", "html"],
+  "eslint.options": {
+    //指定vscode的eslint所处理的文件的后缀
+    "extensions": [".js", ".vue", ".ts", ".tsx"]
+  },
+  /*
+   * @description vetur 配置
+   */
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "semi": false,
+      "singleQuote": true
+    }
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.tsc.autoDetect": "off",
+  "emmet.triggerExpansionOnTab": true,
+  "git.autofetch": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "leetcode.endpoint": "leetcode-cn",
+  "window.zoomLevel": 1,
+  "debug.allowBreakpointsEverywhere": true,
+  "debug.inlineValues": true,
+  "search.followSymlinks": false
+}
