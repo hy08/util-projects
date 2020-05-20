@@ -1,13 +1,13 @@
 import { Subscription, Reducer, Effect } from 'umi';
 import { getTodoList } from '@/services/todoList';
 
-export interface todoItem {
+export interface TodoItem {
   id: string;
   content: string;
   done: boolean;
 }
 export interface TodoListModelState {
-  todoList: todoItem[];
+  todoList: TodoItem[];
 }
 interface TodoListModelType {
   namespace: 'todoList';
@@ -59,8 +59,8 @@ const TodoListModel: TodoListModelType = {
         return { ...state };
       }
     },
-    _deleteTodoItem(state, { id }): TodoListModelState {
-      const todoList = state!.todoList.filter((todo) => todo.id !== id);
+    _deleteTodoItem(state = { todoList: [] }, { id }): TodoListModelState {
+      const todoList = state.todoList.filter((todo) => todo.id !== id);
       return { ...state, todoList };
     },
     _changeTodoItemStatus(state = { todoList: [] }, { id }): TodoListModelState {
