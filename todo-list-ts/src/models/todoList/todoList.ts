@@ -1,4 +1,5 @@
 import { Subscription, Reducer, Effect } from 'umi';
+import { message } from 'antd';
 import { getTodoList } from '@/services/todoList';
 
 export interface TodoItem {
@@ -40,7 +41,7 @@ const TodoListModel: TodoListModelType = {
       if (data.error) {
         return;
       }
-      yield put({ type: '_saveTodoList', payload: data });
+      yield put({ type: '_saveTodoList', payload: data.list });
     },
   },
   reducers: {
@@ -49,13 +50,14 @@ const TodoListModel: TodoListModelType = {
     },
     _createTodoItem(state = { todoList: [] }, { todoItem }): TodoListModelState {
       const { todoList } = state;
-      let exitedTodo = todoList.find(
-        (todo) => todo.id !== todoItem.id && todo.content !== todoItem.content,
+      let exited = todoList.find(
+        (todo) => todo.id === todoItem.id && todo.content === todoItem.content,
       );
-      if (exitedTodo) {
+      if (!exited) {
         todoList.push(todoItem);
         return { ...state, todoList: [...todoList] };
       } else {
+        message.error('该待办事项已存在');
         return { ...state };
       }
     },

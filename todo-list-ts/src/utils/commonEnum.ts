@@ -1,8 +1,9 @@
-// CURD枚举
-enum Crud {
+/**
+ * CURD枚举
+ */
+export enum Crud {
   Create,
   Update,
   Read,
-  Delete
+  Delete,
 }
-export { Crud }

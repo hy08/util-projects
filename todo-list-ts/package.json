@@ -7,19 +7,24 @@
     "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix"
   },
   "dependencies": {
-    "antd": "^3.19.5",
+    "@ant-design/icons": "^4.1.0",
+    "antd": "4.2.2",
+    "classnames": "^2.2.6",
     "dva": "^2.6.0-beta.6",
     "global": "^4.4.0",
     "lodash": "^4.17.15",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "uuid": "^8.1.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
     "@types/jest": "^23.3.12",
     "@types/mockjs": "^1.0.2",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/react-test-renderer": "^16.0.3",
+    "@types/uuid": "^8.0.0",
     "@umijs/preset-react": "^1",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.4.0",

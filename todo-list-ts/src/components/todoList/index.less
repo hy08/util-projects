@@ -1,9 +1,30 @@
 .container {
+  padding: 40px 20px;
   .title {
     font-size: 24px;
   }
 
   .content {
     font-size: 16px;
+    .input {
+      margin-bottom: 20px;
+    }
+    ul {
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > span {
+          cursor: pointer;
+        }
+        .todoContent {
+          flex-grow: 1;
+          text-align: left;
+          &.hasDone {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
   }
 }

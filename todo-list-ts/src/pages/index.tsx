@@ -18,12 +18,42 @@ class Home extends Component<Props> {
       });
     }
   }
-
+  addTodoItem(todoItem: TodoItem) {
+    this.props.dispatch!({
+      type: 'todoList/_createTodoItem',
+      todoItem,
+    });
+  }
+  deleteTodoItem(id: string) {
+    this.props.dispatch!({
+      type: 'todoList/_deleteTodoItem',
+      id,
+    });
+  }
+  changeTodoItemStatus(id: string) {
+    this.props.dispatch!({
+      type: 'todoList/_changeTodoItemStatus',
+      id,
+    });
+  }
   render() {
     const { todoList, loading } = this.props;
     return (
       <div className={styles.normal}>
-        <TodoList list={todoList} loading={loading} />
+        <TodoList
+          title="待办事项处理机"
+          list={todoList}
+          loading={loading}
+          addTodoItem={(todoItem) => {
+            this.addTodoItem(todoItem);
+          }}
+          deleteTodoItem={(id) => {
+            this.deleteTodoItem(id);
+          }}
+          changeTodoItemStatus={(id) => {
+            this.changeTodoItemStatus(id);
+          }}
+        />
       </div>
     );
   }
