@@ -9,7 +9,26 @@
 
 ### 梳理
 
-[一个完整的软件研发流程是怎样的？](https://www.infoq.cn/article/what-is-a-complete-software-development-process)
+从需求到编码，[一个完整的软件研发流程是怎样的？](https://www.infoq.cn/article/what-is-a-complete-software-development-process)
+步骤：
+
+1. 需求分析
+2. 可行性分析
+3. 总体设计（数据流图，模块结构图）
+4. 概要设计（分层数据流图、结构图、数据字典、相关说明）
+5. 详细设计（模块的流程图、状态图、局部变量及相应的文字说明）
+6. 编码
+
+#### 技术可行性分析
+
+1. 外部系统：支持微信支付服务和外卖配送服务，可以实现，但是存在对接难点
+2. 客户端（小程序、管理后台），可以实现，不存在技术难点
+3. api 服务，可以实现，但是存在技术难点
+
+#### 系统分析设计
+
+1. 数据流图，[一个完整的软件研发流程是怎样的？](https://www.infoq.cn/article/what-is-a-complete-software-development-process)
+2. 模块结构图
 
 ### 数据库
 
